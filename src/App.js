@@ -48,7 +48,7 @@ function App() {
 					</Switch>
 				</main>
 				<aside>
-					<Cart cart={cart}/>
+					<Cart/>
 				</aside>
 			</Container>
 		</Provider>
