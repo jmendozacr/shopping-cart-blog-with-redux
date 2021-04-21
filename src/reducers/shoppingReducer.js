@@ -5,7 +5,7 @@ const initialState = {
         { id: 3, name: "Cherry" },
         { id: 4, name: "Watermelon" },
     ],
-    cart: [1, 2, 3]
+    cart: []
 }
 
 const reducer = (state = initialState, dispatch) => {

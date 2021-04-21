@@ -11,13 +11,6 @@ import { createStore } from 'redux';
 import reducer from './reducers/shoppingReducer';
 
 function App() {
-    const products = [
-        { id: 1, name: "Apple" },
-        { id: 2, name: "Banana" },
-        { id: 3, name: "Cherry" },
-        { id: 4, name: "Watermelon" },
-    ];
-
     const [cart, setCart] = useState([]);
 
 	const onAdd = (product) => {
@@ -35,7 +28,6 @@ function App() {
 	}
 
 	const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-	console.log(store.getState());
 
     return (
 		<Provider store={store}>
@@ -50,7 +42,7 @@ function App() {
 						<Route path="/" exact component={Home}/>
 						<Route path="/blog" component={Blog}/>
 						<Route path="/shopping">
-							<Shopping products={products} onAdd={onAdd}/>
+							<Shopping onAdd={onAdd}/>
 						</Route>
 						<Route component={Error404}/>
 					</Switch>

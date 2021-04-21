@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 const Products = ({ products, onAdd }) => {
     return (
@@ -59,4 +60,10 @@ const Button = styled.button`
     }
 `;
 
-export default Products;
+const mapStateToProps = (state) => {
+    return {
+        products: state.products
+    }
+}
+
+export default connect(mapStateToProps)(Products);
