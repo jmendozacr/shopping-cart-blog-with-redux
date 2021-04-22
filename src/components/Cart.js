@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 const Cart = ({ cart }) => {
-    console.log("cart", cart);
     return (
         <div>
             <h3>Shopping Cart</h3>
