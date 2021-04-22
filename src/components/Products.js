@@ -66,4 +66,17 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Products);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onAdd: (product) => {
+            dispatch(
+                {
+                    type: "ADD_PRODUCT",
+                    payload: product
+                }
+            );
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
