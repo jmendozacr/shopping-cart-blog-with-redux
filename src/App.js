@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
@@ -11,22 +11,6 @@ import { createStore } from 'redux';
 import reducer from './reducers/shoppingReducer';
 
 function App() {
-    const [cart, setCart] = useState([]);
-
-	const onAdd = (product) => {
-		const exist = cart.find((item) => item.id === product.id);
-
-		if(exist) {
-			setCart(
-				cart.map(item => 
-					item.id === product.id ? {...exist, quantity: exist.quantity + 1} : item
-				)
-			);
-		} else {
-			setCart([...cart, {...product, quantity: 1}]);
-		}
-	}
-
 	const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
     return (
@@ -41,9 +25,7 @@ function App() {
 					<Switch>
 						<Route path="/" exact component={Home}/>
 						<Route path="/blog" component={Blog}/>
-						<Route path="/shopping">
-							<Shopping onAdd={onAdd}/>
-						</Route>
+						<Route path="/shopping" component={Shopping}/>
 						<Route component={Error404}/>
 					</Switch>
 				</main>
